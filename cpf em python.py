@@ -2,14 +2,17 @@
 cpf = []
 A = []
 
-a = int(input("Digite os nove primeiros digitos:")) 
+CPF = input("Digite os nove primeiros digitos do seu:")
 
-while a > 0:
-    A.append(a%10)
-    a = int(a/10)
+for numero in CPF:
+    cpf.append(int(numero))
 
-for i in range (8, -1, -1):
-    cpf.append(A[i])
+# while a > 0:
+    #A.append(a%10)
+    #a = int(a/10)
+
+# for i in range (8, -1, -1):
+    #cpf.append(A[i])
 
 i = 0
 j = 10
