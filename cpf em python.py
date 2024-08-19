@@ -25,7 +25,16 @@ for numero in CPF:
 cpf_certo[9] = achar_digito(10, cpf_certo)
 cpf_certo[10] = achar_digito(11, cpf_certo)
 
+CPF = ""
+for i in range(11):
+    CPF = CPF + str(cpf_certo[i])
+    if i == 2 or i == 5:
+        CPF = CPF + "."
+    elif i == 8:
+        CPF = CPF + "-" 
+        
 if cpf_dado == cpf_certo:
-    print("O CPF é possível")
+    print(f"O CPF {CPF} é possível")
 else:
-    print(f"O CPF não é possível, o certo seria:{cpf_certo}")
+    print(f"O CPF dado não é possível, o certo seria: {CPF}")
+    
