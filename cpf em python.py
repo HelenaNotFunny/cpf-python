@@ -1,4 +1,3 @@
-# Código para checar se é um CPF possível
 def achar_digito(posição, lista): # Algoritmo para achar os últimos dois digitos de um cpf
     i = 0
     j = posição
@@ -23,7 +22,6 @@ while len(CPF) != 11: # O número só será aceito se tiver a quantidade certa d
 
 cpf_dado = []
 cpf_certo = []
-
 for numero in CPF: #Transformando a string em lista
     cpf_dado.append(int(numero))
     cpf_certo.append(int(numero))
