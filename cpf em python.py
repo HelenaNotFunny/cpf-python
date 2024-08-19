@@ -1,11 +1,11 @@
-# Código para descobrir últimos dois digitos de um CPF
-def achar_digito(posição):
+# Código para checar se é um CPF possível
+def achar_digito(posição, lista):
     i = 0
     j = posição
     n = 0
 
     while i < (posição - 1) and j > 1:
-        n = n + cpf[i]*j
+        n = n + lista[i]*j
         i += 1
         j -= 1 
 
@@ -14,14 +14,18 @@ def achar_digito(posição):
         n = 0 
     return n
 
-cpf = []
-CPF = input("Digite os nove primeiros digitos do seu:")
+CPF = input("Digite o seu CPF:")
+cpf_dado = []
+cpf_certo = []
 
 for numero in CPF:
-    cpf.append(int(numero))
+    cpf_dado.append(int(numero))
+    cpf_certo.append(int(numero))
 
+cpf_certo[9] = achar_digito(10, cpf_certo)
+cpf_certo[10] = achar_digito(11, cpf_certo)
 
-cpf.append(achar_digito(10))
-cpf.append(achar_digito(11))
-
-print(cpf)
+if cpf_dado == cpf_certo:
+    print("O CPF é possível")
+else:
+    print(f"O CPF não é possível, o certo seria:{cpf_certo}")
