@@ -31,17 +31,17 @@ cpf_certo[9] = achar_digito(10, cpf_certo)
 cpf_certo[10] = achar_digito(11, cpf_certo)
 
 # Formatando o CPF
-CPF = ""
+CPF_formatado = ""
 for i in range(11):
-    CPF = CPF + str(cpf_certo[i])
+    CPF_formatado = CPF_formatado + str(cpf_certo[i])
     if i == 2 or i == 5:
-        CPF = CPF + "."
+        CPF_formatado = CPF_formatado + "."
     elif i == 8:
-        CPF = CPF + "-" 
+        CPF_formatado = CPF_formatado + "-" 
     
 # Resultado
 if cpf_dado == cpf_certo:
-    print(f"O CPF {CPF} é possível")
+    print(f"O CPF {CPF_formatado} é possível")
 else:
-    print(f"O CPF dado não é possível, o certo seria: {CPF}")
+    print(f"O CPF dado não é possível, o certo seria: {CPF_formatado}")
     
