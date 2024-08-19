@@ -14,7 +14,12 @@ def achar_digito(posição, lista):
         n = 0 
     return n
 
-CPF = input("Digite o seu CPF:")
+CPF = input("Digite o seu CPF: ")
+while len(CPF) != 11:
+    if len(CPF) < 11:
+        CPF = input("O número digitado possui menos digitos que um cpf, digite novamente: ")
+    if len(CPF) > 11:
+        CPF = input("O número digitado possui mais digitos que um cpf, digite novamente: ")
 cpf_dado = []
 cpf_certo = []
 
