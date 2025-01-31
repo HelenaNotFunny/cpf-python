@@ -13,35 +13,41 @@ def achar_digito(posição, lista): # Algoritmo para achar os últimos dois digi
         n = 0 
     return n
 
-CPF = input("Digite o seu CPF: ")
-while len(CPF) != 11: # O número só será aceito se tiver a quantidade certa de digitos
-    if len(CPF) < 11:
-        CPF = input("O número digitado possui menos digitos que um cpf, digite novamente: ")
-    if len(CPF) > 11:
-        CPF = input("O número digitado possui mais digitos que um cpf, digite novamente: ")
+loop = "ok"
 
-cpf_dado = []
-cpf_certo = []
-for numero in CPF: #Transformando a string em lista
-    cpf_dado.append(int(numero))
-    cpf_certo.append(int(numero))
+while loop == "ok":
+    CPF = input("Digite o seu CPF: ")
+    while len(CPF) != 11: # O número só será aceito se tiver a quantidade certa de digitos
+        if len(CPF) < 11:
+            CPF = input("O número digitado possui menos digitos que um cpf, digite novamente: ")
+        if len(CPF) > 11:
+            CPF = input("O número digitado possui mais digitos que um cpf, digite novamente: ")
 
-# Usando a função para os últimos dois digitos
-cpf_certo[9] = achar_digito(10, cpf_certo)
-cpf_certo[10] = achar_digito(11, cpf_certo)
+    cpf_dado = []
+    cpf_certo = []
+    for numero in CPF: #Transformando a string em lista
+        cpf_dado.append(int(numero))
+        cpf_certo.append(int(numero))
 
-# Formatando o CPF
-CPF_formatado = ""
-for i in range(11):
-    CPF_formatado = CPF_formatado + str(cpf_certo[i])
-    if i == 2 or i == 5:
-        CPF_formatado = CPF_formatado + "."
-    elif i == 8:
-        CPF_formatado = CPF_formatado + "-" 
+    # Usando a função para os últimos dois digitos
+    cpf_certo[9] = achar_digito(10, cpf_certo)
+    cpf_certo[10] = achar_digito(11, cpf_certo)
+
+    # Formatando o CPF
+    CPF_formatado = ""
+    for i in range(11):
+        CPF_formatado = CPF_formatado + str(cpf_certo[i])
+        if i == 2 or i == 5:
+            CPF_formatado = CPF_formatado + "."
+        elif i == 8:
+            CPF_formatado = CPF_formatado + "-" 
+        
+    # Resultado
+    if cpf_dado == cpf_certo:
+        print(f"O CPF {CPF_formatado} é possível")
+    else:
+        print(f"O CPF dado não é possível, o certo seria: {CPF_formatado}")
+
+    loop = input('Digite "ok" se deseja continuar a testar CPFs: ').lower()
     
-# Resultado
-if cpf_dado == cpf_certo:
-    print(f"O CPF {CPF_formatado} é possível")
-else:
-    print(f"O CPF dado não é possível, o certo seria: {CPF_formatado}")
-    
+        
